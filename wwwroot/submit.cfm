@@ -29,25 +29,34 @@
 			<h1>SURVEY TABLET APP</h1>
 		</div>
 	</nav>
-	<div class="container-fluid" id="surv-cont">
-        <form id="survForm" name="survForm" method="post" action="page1.cfm">
-            <div id="surv-btn">
-                <input type="hidden" name="qid" id="qid" value=1>
-                <label for="pid">Survey Code</label>
-                <input type="text" name="pid" id="pid">
-                <p>
-                    <input type="submit" name="submit" id="submit" value="Start Survey" class="btn btn-primary"/>
-                </p>
-                
-                <!--<a class="btn btn-primary" href="page1.cfm" role="button">
-                    <span style="line-height:2em;vertical-align:middle;">Start Survey</span></a> 
-                        -->
+	<cfquery datasource="capstone" name="survTest">
+			INSERT INTO survey (pid,fname,lname,dob)
+			VALUES ('#form.pid#','#form.fname#','#form.lname#','#form.dob#')     
+    </cfquery>
+	<div class="container-fluid surv-quest">
+		<h1>
+            Data Submitted: <a href="index.cfm">Return Home</a>
+        </h1><hr/>
 
+		<form id="survForm" name="survForm" method="post" action="page1.cfm">
+            <div id="surv-btn">
+                <input type="hidden" name="pid" id="pid" value=<cfoutput>#form.pid#</cfoutput>>
+                <input type="hidden" name="fname" id="fname"value=<cfoutput>#form.fname#</cfoutput>>
+                <input type="hidden" name="lname" id="lname"value=<cfoutput>#form.lname#</cfoutput>>
+                <input type="hidden" name="dob" id="dob"value=<cfoutput>#form.dob#</cfoutput>>
             </div>
         </form>	
 	</div>
 		
 	<nav class="navbar navbar-inverse navbar-fixed-bottom progbar">
+		<div class="container-fluid">
+			<div class="progbar">
+				<h5>Progress (1/4)</h5>
+			</div>
+			<div id="myProgress">
+				<div id="myBar1"></div>
+			</div>
+		</div>
 	</nav>
   </body>
 </html>
