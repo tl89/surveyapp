@@ -35,25 +35,27 @@
             <cfoutput>
                 <cfquery datasource="capstone" name="survQuestions">
                     SELECT question FROM questions
-                    WHERE qid = '1'
+                    WHERE qid = <cfoutput>#form.qid#</cfoutput>
                 </cfquery>
                 #survQuestions.question#
-            </cfoutput>
-        </h1><hr/>
-		<cfquery datasource="capstone" name="survTest">
-			INSERT INTO survey (pid)
-			VALUES ('#form.pid#')
-		</cfquery>
-		<cfoutput>
-			<cfquery datasource="capstone" name="formAcctNew">
-				SELECT pid FROM survey
-				WHERE pid = '#form.pid#'
-            </cfquery>
-			#formAcctNew.pid# new user created
-		</cfoutput>
-		<div class="surv-btn">
-		<a class="btn btn-primary" href="page2.html" role="button">Next</a>
-		</div>
+            </cfoutput> 
+        </h1><hr/>   
+		<form id="survForm" name="survForm" method="post" action="submit.cfm">
+            <div id="surv-btn">
+                <input type="hidden" name="qid" id="qid" value=1>
+                <input type="hidden" name="pid" id="pid" value=<cfoutput>#form.pid#</cfoutput>>
+            
+                <label for="fname">First Name</label>
+                <input type="text" name="fname" id="fname">
+                <label for="lname">Last Name</label>
+                <input type="text" name="lname" id="lname">
+                <label for="dob">DOB</label>
+                <input type="text" name="dob" id="dob">
+                <div class="surv-btn"> 
+                    <input type="submit" class="btn btn-primary" name="submit" id="submit" value="Next">
+				</div>
+            </div> 
+		</form>	
 	</div>
 		
 	<nav class="navbar navbar-inverse navbar-fixed-bottom progbar">
