@@ -29,23 +29,15 @@
 			<h1>SURVEY TABLET APP</h1>
 		</div>
 	</nav>
-	<cfquery datasource="capstone" name="survTest">
-			INSERT INTO survey (pid,fname,lname,dob)
-			VALUES ('#form.pid#','#form.fname#','#form.lname#','#form.dob#')     
+	<cfquery datasource="emr" name="survTest">
+			INSERT INTO surveyData (fname,lname,dob)
+			VALUES ('#form.fname#','#form.lname#','#form.dob#')     
     </cfquery>
 	<div class="container-fluid surv-quest">
 		<h1>
             Data Submitted: <a href="index.cfm">Return Home</a>
         </h1><hr/>
 
-		<form id="survForm" name="survForm" method="post" action="page1.cfm">
-            <div id="surv-btn">
-                <input type="hidden" name="pid" id="pid" value=<cfoutput>#form.pid#</cfoutput>>
-                <input type="hidden" name="fname" id="fname"value=<cfoutput>#form.fname#</cfoutput>>
-                <input type="hidden" name="lname" id="lname"value=<cfoutput>#form.lname#</cfoutput>>
-                <input type="hidden" name="dob" id="dob"value=<cfoutput>#form.dob#</cfoutput>>
-            </div>
-        </form>	
 	</div>
 		
 	<nav class="navbar navbar-inverse navbar-fixed-bottom progbar">
