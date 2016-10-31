@@ -26,7 +26,6 @@
   <body>
 	<nav class="navbar navbar-default navbar-fixed-top progbar">
 		<div class="container-fluid">
-			<h1>SURVEY TABLET APP</h1>
 		</div>
 	</nav>
 	  

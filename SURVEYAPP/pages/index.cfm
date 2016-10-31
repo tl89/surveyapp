@@ -25,16 +25,16 @@
   <body>
 	<nav class="navbar navbar-default navbar-fixed-top progbar">
 		<div class="container-fluid">
-			<h1>SURVEY TABLET APP</h1>
 		</div>
 	</nav>
 	<div class="container-fluid" id="surv-cont">
         <form id="survForm" name="survForm" method="post" action="surveyPage.cfm">
-            <div id="surv-btn">
-                <label for="pid">Survey Code</label>
-                <input type="text" name="surveyCode" id="surveyCode">
-                <p>
-                    <input type="submit" name="submit" id="submit" value="Start Survey" class="btn btn-primary"/>
+            <div id="surv-btn"  style="text-align:center;">
+				<h1>Welcome!</h1>
+                <label for="surveyCode">Please enter the survey code to begin the survey:</label><br/><br/>
+                <input class="form-control" name="surveyCode" id="surveyCode" placeholder="Survey Code" type="text">
+                <p style="padding-top:5%;">
+                    <input type="submit" name="submit" id="submit" value="Start Survey" class="btn btn-primary" style="width:60%;"/>
                 </p>
             </div>
         </form>	

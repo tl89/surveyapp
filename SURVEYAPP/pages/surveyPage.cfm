@@ -41,9 +41,6 @@
 
   <body>
 	<nav class="navbar navbar-default navbar-fixed-top progbar">
-		<div class="container-fluid">
-			<h1>SURVEY TABLET APP</h1>
-		</div>
 	</nav>
 	  
 	<cfquery datasource="surveyApp" name="survCode">
@@ -52,67 +49,87 @@
 	</cfquery>
 	  
 	<div class="container-fluid surv-quest">
-		
 		<cfif len(survCode.surveyCode)>
 			<form id="multipage" method="post" action="/SURVEYAPP/classes/api/surveyApp.cfc?method=sendSurveyData">
 				<fieldset id="page_one">
 					<legend>
 						<cfoutput>
-							<h1>What is your First Name?</h1>
+							<h1>Tell us about yourself.</h1>
 						</cfoutput>
 					</legend>
 					<p class="input">
-						<label for="fname">First Name</label>
-                		<input type="text" name="fname" id="fname">
+						<div class="form-group row">
+							<div class="col-xs-6">
+								<input class="form-control" name="fname" id="fname" placeholder="First Name" type="text">
+							</div>
+							<div class="col-xs-6">
+								<input class="form-control" name="lname" id="lname" placeholder="Last Name" type="text">
+							</div>
+						</div>
+						<div class="form-group">
+							<input class="form-control" name="dob" id="dob" placeholder="Date of Birth (YYYY-MM-DD)" type="text">
+						</div>	
 					</p>		
 					<div class="surv-btn">
-					<input type="button" class="btn btn-primary" onclick="return $('#multipage').nextpage();" name="next" value="Next">
+					<input type="button" style="width:20%;" class="btn btn-primary" onclick="return $('#multipage').nextpage();" name="next" value="Next">
 					</div>
 				</fieldset>
 				<fieldset id="page_two">
 					<legend>
 						<cfoutput>
-							<h1>What is your Last Name?</h1>
+							<h2>In the last two weeks, how many doses of HIV medications have you missed?</h2>
 						</cfoutput>
 					</legend>
 					<p class="input">
-						<label for="lname">Last Name</label>
-                		<input type="text" name="lname" id="lname">
+						<div class="form-group">
+							<div style="width:50%">
+								<label for="dob">Missed Doses: </label>
+								<input class="form-control" name="q1" id="q1" placeholder="" type="text">
+							</div>
+						</div>
 					</p>		
 					
 					<div class="surv-btn">
-					<input type="button" class="btn btn-secondary" onclick="return $('#multipage').prevpage();" name="next" value="Back">
-					<input type="button" class="btn btn-primary" onclick="return $('#multipage').nextpage();" name="next" value="Next">
+					<input type="button" style="width:20%;" class="btn btn-secondary" onclick="return $('#multipage').prevpage();" name="next" value="Back">
+					<input type="button" style="width:20%;" class="btn btn-primary" onclick="return $('#multipage').nextpage();" name="next" value="Next">
 					</div>
 				</fieldset>
 				<fieldset id="page_three">
 					<legend>
 						<cfoutput>
-							<h1>What is your DOB?</h1>
+							<h2>In the last two weeks, how many days did you miss at least one dose of an HIV medication?</h2>
 						</cfoutput>
 					</legend>
 					<p class="input">
-						<label for="dob">DOB</label>
-                		<input type="text" name="dob" id="dob">
+						<div class="form-group">
+							<div style="width:50%">
+								<label for="dob">Missed Days: </label>
+								<input class="form-control" name="q2" id="q2" placeholder="" type="text">
+							</div>
+						</div>
 					</p>	
 					<div class="surv-btn">
-					<input type="button" class="btn btn-secondary" onclick="return $('#multipage').prevpage();" name="next" value="Back">
-					<input type="button" class="btn btn-primary" onclick="return $('#multipage').nextpage();" name="next" value="Next">
+					<input type="button" style="width:20%;" class="btn btn-secondary" onclick="return $('#multipage').prevpage();" name="next" value="Back">
+					<input type="button" style="width:20%;" class="btn btn-primary" onclick="return $('#multipage').nextpage();" name="next" value="Next">
 					</div>
 				</fieldset>
 				<fieldset id="page_four">
 					<legend>
 						<cfoutput>
-							<h1>Question 4?</h1>
+							<h2>Please list any side-effects that occurred in the last two weeks.</h2>
 						</cfoutput>
 					</legend>
 					<p class="input">
-						<label for="q4">Q4</label>
-                		<input type="text" name="q4" id="q4">
-					</p>	
+						<div class="form-group">
+							<div>
+								<label for="dob">Side effects: </label>
+								<textarea class="form-control" name="q3" id="q3" placeholder="" type="text" rows="3"></textarea>
+							</div>
+						</div>
+					</p>
 					<div class="surv-btn">
-					<input type="button" class="btn btn-secondary" onclick="return $('#multipage').prevpage();" name="next" value="Back">
-					<input type="submit" class="btn btn-primary" name="submit" id="submit" value="Submit">
+					<input type="button" style="width:20%;" class="btn btn-secondary" onclick="return $('#multipage').prevpage();" name="next" value="Back">
+					<input type="submit" style="width:20%;" class="btn btn-primary" name="submit" id="submit" value="Submit">
 					</div>
 				</fieldset>
 			</form>
