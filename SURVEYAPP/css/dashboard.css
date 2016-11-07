@@ -149,6 +149,17 @@ body {
   border-top: 1px solid rgba(0, 0, 0, 0.1); 
   border-bottom: 1px solid rgba(255, 255, 255, 0.3);
 }
+.admin-page {
+  margin: 10%;
+  margin-top:5%;
+}
+.admin-page hr {
+  margin-top:0px;
+  border: 0; 
+  height: 0; 
+  border-top: 1px solid rgba(0, 0, 0, 0.1); 
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
 .separate {
   border-left: 1px solid #ddd; 
   margin: 0 10%;
@@ -190,5 +201,14 @@ body {
   width: 0%;
   height: 100%;
   background-color: #FF9900;
+}
+
+.btn-secondary,
+.btn-secondary:hover,
+.btn-secondary:active,
+.btn-secondary:visited,
+.btn-secondary:focus {
+    background-color: #dbdbdb;
+    border-color: #dbdbdb;
 }
 

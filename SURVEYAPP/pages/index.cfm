@@ -25,8 +25,14 @@
   <body>
 	<nav class="navbar navbar-default navbar-fixed-top progbar">
 		<div class="container-fluid">
+			<ul class="nav navbar-nav navbar-right">
+				<li>
+					<a href="adminPage.cfm" style="color:white;">Admin Login</a>
+				</li>
+			</ul>
 		</div>
 	</nav>
+	  
 	<div class="container-fluid" id="surv-cont">
         <form id="survForm" name="survForm" method="post" action="surveyPage.cfm">
             <div id="surv-btn"  style="text-align:center;">

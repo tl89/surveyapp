@@ -15,15 +15,15 @@
 		</cfquery>
 		<!-- Insert survey data -->
 		<cfquery datasource="emrApp" name="insertTest">
-		INSERT INTO surveyData(patientId, question1, question2, question3)
-		VALUES ('#patientDataQuery.patientId#','#form.q1#','#form.q2#','#form.q3#')     
+		INSERT INTO surveyData(patientId, question1, question2, question3, dateTaken)
+		VALUES ('#patientDataQuery.patientId#','#form.q1#','#form.q2#','#form.q3#', '#form.regDate#')     
 		</cfquery>
 		<!-- if patient doesn't exists -->
 		<cfelse>
 			<!-- Create new patient -->
 			<cfquery datasource="emrApp" name="newPatient">
-				INSERT INTO patientData(pFname, pLname, pDOB)
-				VALUES ('#form.fname#','#form.lname#','#form.dob#')  
+				INSERT INTO patientData(pFname, pLname, pDOB, regDate)
+				VALUES ('#form.fname#','#form.lname#','#form.dob#', '#form.regDate#')  
 			</cfquery>
 			<!-- Find new patient -->
 			<cfquery name="findNewPatient" datasource="emrApp">
@@ -32,8 +32,8 @@
 			</cfquery>
 			<!-- Insert survey questions for new patient -->
 			<cfquery datasource="emrApp" name="newPatSurv">
-				INSERT INTO surveyData(patientId, question1, question2, question3)
-				VALUES ('#findNewPatient.patientId#','#form.q1#','#form.q2#','#form.q3#')     
+				INSERT INTO surveyData(patientId, question1, question2, question3, dateTaken)
+				VALUES ('#findNewPatient.patientId#','#form.q1#','#form.q2#','#form.q3#', '#form.regDate#')     
 			</cfquery>
 	</cfif>
 	</cffunction>

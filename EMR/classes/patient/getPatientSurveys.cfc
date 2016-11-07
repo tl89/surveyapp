@@ -10,7 +10,7 @@
 
         <cfloop query="patientSurveyQuery">
             <cfset var response &="<tr>">
-            <cfset var response &="<td>" & #surveyId# & "</td><td>" & "October 31, 2016" & "</td><td>" & "<button class=""btn btn-xs"" onclick=""viewPatientSurveyDetail('#surveyid#')"">View</button> " & "</td>">
+            <cfset var response &="<td>" & #surveyId# & "</td><td>" & #DateFormat(dateTaken, "mmm. dd, yyyy")# & "</td><td>" & "<button class=""btn btn-xs"" onclick=""viewPatientSurveyDetail('#surveyid#')"">View</button> " & "</td>">
         </cfloop>
 
         <cfreturn response>

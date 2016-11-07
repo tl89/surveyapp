@@ -41,16 +41,24 @@
 
   <body>
 	<nav class="navbar navbar-default navbar-fixed-top progbar">
+		<div class="container-fluid">
+			<ul class="nav navbar-nav navbar-right">
+				<li>
+					<a href="index.cfm" style="color:white;">Exit Survey</a>
+				</li>
+			</ul>
+		</div>
 	</nav>
 	  
 	<cfquery datasource="surveyApp" name="survCode">
-		SELECT surveyCode FROM adminData
-		WHERE surveyCode = '#form.surveyCode#'
+		SELECT surveyCode FROM surveyTracker
+		WHERE surveyCode = '#form.surveyCode#' AND codeAvail > 0
 	</cfquery>
 	  
 	<div class="container-fluid surv-quest">
 		<cfif len(survCode.surveyCode)>
 			<form id="multipage" method="post" action="/SURVEYAPP/classes/api/surveyApp.cfc?method=sendSurveyData">
+				<input name="surveyCode" id="surveyCode" type="hidden" value=<cfoutput>#form.surveyCode#</cfoutput>>
 				<fieldset id="page_one">
 					<legend>
 						<cfoutput>

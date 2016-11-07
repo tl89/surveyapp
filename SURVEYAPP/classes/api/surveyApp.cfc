@@ -1,6 +1,7 @@
 <cfcomponent output="false">
   <cffunction name="sendSurveyData" access="remote" returnformat="json" returnType="any">
-	  <cfhttp  
+	<cfset dateStamp = #DateFormat(Now(), "yyyy-mm-dd")#>
+	<cfhttp  
 		method="Post" 
 		url="http://localhost:8500/EMR/classes/api/emrApp.cfc?method=insertSurveyData" 
 		resolveurl="Yes">
@@ -10,7 +11,22 @@
 			<cfhttpparam type="Formfield" value="#form.q1#" name="q1">
 			<cfhttpparam type="Formfield" value="#form.q2#" name="q2">
 			<cfhttpparam type="Formfield" value="#form.q3#" name="q3">
-	  </cfhttp>
+			<cfhttpparam type="Formfield" value="#dateStamp#" name="regDate">
+	</cfhttp>
+				
+	<cfquery datasource="surveyApp" name="updateCodeAvailability">
+	UPDATE surveyTracker
+	SET codeAvail = codeAvail - 1
+	WHERE surveyCode = '#form.surveyCode#'
+	</cfquery>
+                
+    <cfquery datasource="surveyApp" name="updateCodeUsed">
+	UPDATE surveyTracker
+	SET codeUsed = codeUsed + 1	
+	WHERE surveyCode = '#form.surveyCode#'
+	</cfquery>	
+                
 	<cflocation url = "/SURVEYAPP/pages/submitPage.cfm" >
+		
   </cffunction>
 </cfcomponent>
