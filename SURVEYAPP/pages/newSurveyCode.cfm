@@ -30,18 +30,14 @@
 	<div class="container-fluid surv-quest">
 		<h1 class="text-center">Create New Survey Code</h1>
 		<form method="post" action="/SURVEYAPP/classes/admin/survCodeDisp.cfc?method=createSurvCode">
-			<p class="input">
+
 				<div class="form-group row">
-					<div class="col-xs-6">
-						<label for="survCode">Survey Code: </label>
-						<input class="form-control" name="survCode" id="survCode" type="text">
-					</div>
-					<div class="col-xs-6">
-						<label for="codeAvail">Uses available: </label>
-						<input class="form-control" name="codeAvail" id="codeAvail" type="text">
+					<div class="col-xs-12">
+						<label for="survCode">How many: </label>
+						<input class="form-control" name="numGen" id="numGen" type="text">
 					</div>
 				</div>
-			</p>
+
 			
 			<p class="text-center" style="padding-top:5%;">
 				<input type="submit" name="submit" id="submit" value="Create" class="btn btn-primary" style="width:40%;"/><br/>

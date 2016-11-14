@@ -78,7 +78,6 @@ body {
     background-color: #428bca;
 }
 
-
 /*
  * Main content
  */
@@ -165,11 +164,11 @@ body {
   margin: 0 10%;
 }
 .surv-btn {
-  margin-top:5em;
+  margin-top:1em;
   text-align:center;
 }
-.surv-btn a{
-  width: 20%
+.surv-btn button{
+  width: 20vw;
 }
 #surv-cont {
   position: absolute;
@@ -202,7 +201,17 @@ body {
   height: 100%;
   background-color: #FF9900;
 }
+.center_div{
 
+  margin: 0 auto;
+  width: 40%
+}
+
+.smalltext{
+
+  margin: 0 auto;
+  width: 40%
+}
 .btn-secondary,
 .btn-secondary:hover,
 .btn-secondary:active,
@@ -212,3 +221,10 @@ body {
     border-color: #dbdbdb;
 }
 
+div.hidden
+{
+   display: none
+}
+.glyphicon{
+	color: #428bca;
+}

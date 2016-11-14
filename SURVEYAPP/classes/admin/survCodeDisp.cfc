@@ -18,10 +18,18 @@
   </cffunction>
 	  
   <cffunction name="createSurvCode" access="remote" returnformat="json" returnType="any">
-	<cfquery name="newSurvCode" datasource="surveyApp">
-		INSERT INTO surveyTracker(adminId, surveyCode, codeAvail)
-		VALUE ('#session.adminId#', '#form.survCode#', '#form.codeAvail#')
-	</cfquery>
+	<cfset var numberToGenerate = #form.numGen#>
+		
+	<cfloop condition = "numberToGenerate GT 0"> 
+		<cfquery name="newSurvCode" datasource="surveyApp">
+			<cfset var randCode = '#chr(RandRange(65, 90))##chr(RandRange(65, 90))##chr(RandRange(65, 90))##RandRange(100, 999)#'>
+				
+			INSERT INTO surveyTracker(adminId, surveyCode, codeAvail)
+			VALUE ('#session.adminId#','#randCode#' , '1')
+		</cfquery>
+		<cfset numberToGenerate = numberToGenerate - 1> 
+	</cfloop>
+
 	<cflocation url = "/SURVEYAPP/pages/adminPage.cfm" >
   </cffunction>
 </cfcomponent>

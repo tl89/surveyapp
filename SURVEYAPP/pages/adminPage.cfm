@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -29,45 +28,57 @@
   </head>
 
   <body>
-	<nav class="navbar navbar-default navbar-fixed-top progbar">
-		<div class="container-fluid">
-			<ul class="nav navbar-nav navbar-right">
-				<li>
-					<a href="adminLogin.cfm?logout" style="color:white;">Sign Out</a>
-				</li>
-			</ul>
-		</div>
-	</nav>
+	<nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="adminLogin.cfm?logout" style="color:white;">Sign Out</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
 	  
 	<div class="container-fluid admin-page">
 		<h1>Survey Codes Availibility</h1><hr/>
+		<form action="newSurveyCode.cfm">
+		<p class="text-center" style="padding-top:1%;padding-bottom:1%;">
+			<input type="submit" name="submit" id="submit" value="Create new survey code" class="btn btn-primary" style="width:40%;"/>
+		</p>
+	</form>
                         <div class="table-responsive">
                             <table class="table table-hover" id="patientstable">
 								<cfinvoke component="SURVEYAPP.classes.admin.survCodeDisp" method="getSurvCode" returnvariable="returnCodeQuery"></cfinvoke>
                                 <thead>
                                     <tr>
                                         <th>Survey Code</th>
-                                        <th>Uses Left</th>
-                                        <th>Times Used</th>
+                                        <th>Used</th>
                                     </tr>
                                 </thead>
                                 <tbody>
 									<cfoutput query="returnCodeQuery">
 										<tr>
 											<td>#surveyCode#</td>
-											<td>#codeAvail#</td>
-											<td>#codeUsed#</td>
-											<td><button class="btn btn-primary btn-xs" onclick="editSurveyCode('#surveyCode#','#codeAvail#')">EDIT</button></td>
+											<td>
+												<cfif #codeUsed# LT 1>
+												<span style="color:skyblue" class="glyphicon glyphicon-remove"></span>
+													<cfelse><span style="color:dodgerblue" class="glyphicon glyphicon-ok"></span></i>
+												</cfif>
+											</td>
 										</tr>
 									</cfoutput>
 								</tbody>
                             </table>
                         </div>
-	<form action="newSurveyCode.cfm">
-		<p class="text-center" style="padding-top:5%;">
-			<input type="submit" name="submit" id="submit" value="Create new survey code" class="btn btn-primary" style="width:40%;"/>
-		</p>
-	</form>
 	</div>
 		
 	<nav class="navbar navbar-default navbar-fixed-bottom progbar">

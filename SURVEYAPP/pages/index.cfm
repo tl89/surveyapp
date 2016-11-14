@@ -23,28 +23,39 @@
   </head>
 
   <body>
-	<nav class="navbar navbar-default navbar-fixed-top progbar">
-		<div class="container-fluid">
-			<ul class="nav navbar-nav navbar-right">
-				<li>
-					<a href="adminPage.cfm" style="color:white;">Admin Login</a>
-				</li>
-			</ul>
-		</div>
-	</nav>
-	  
-	<div class="container-fluid" id="surv-cont">
-        <form id="survForm" name="survForm" method="post" action="surveyPage.cfm">
-            <div id="surv-btn"  style="text-align:center;">
-				<h1>Welcome!</h1>
-                <label for="surveyCode">Please enter the survey code to begin the survey:</label><br/><br/>
-                <input class="form-control" name="surveyCode" id="surveyCode" placeholder="Survey Code" type="text">
-                <p style="padding-top:5%;">
-                    <input type="submit" name="submit" id="submit" value="Start Survey" class="btn btn-primary" style="width:60%;"/>
-                </p>
+	<nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="adminLogin.cfm">Admin Login</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
-        </form>	
-	</div>
+        </nav>
+	  <div class="container">
+		<legend><h1>Welcome!</h1></legend>
+		<div class="container-fluid center_div">
+			<form id="survForm" name="survForm" method="post" action="surveyPage.cfm">
+				<div id="surv-btn"  style="text-align:center;">
+					<label for="surveyCode">Please verify survey code:</label><br/><br/>
+					<input class="form-control" name="surveyCode" id="surveyCode" placeholder="Survey Code" type="text">
+					<p style="padding-top:5%;">
+						<input type="submit" name="submit" id="submit" value="Start Survey" class="btn btn-danger" style="width:60%;"/>
+					</p>
+				</div>
+			</form>	
+		</div>
+	  </div>
 		
 	<nav class="navbar navbar-default navbar-fixed-bottom progbar">
 	</nav>
