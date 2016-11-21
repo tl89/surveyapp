@@ -14,6 +14,8 @@
     <link href="../css/bootstrap-cerulean.min.css" rel="stylesheet">
 	<link href="../css/dashboard.css" rel="stylesheet">
 	<link href="../css/checkbox-x.css" rel="stylesheet">
+	<link href="../css/signin.css" rel="stylesheet">
+	<link href="../css/animate.css" rel="stylesheet">
 	  
     <!-- Bootstrap core JavaScript -->
     <script src="../js/jquery-3.1.1.min.js"></script>
@@ -43,20 +45,33 @@
             </div>
         </nav>
 	  <div class="container">
-		<legend><h1>Welcome!</h1></legend>
-		<div class="container-fluid center_div">
+		<legend><h1 class="animated fadeIn" style="color:white;">Welcome!</h1></legend>
+		<div class="container-fluid">
 			<form id="survForm" name="survForm" method="post" action="surveyPage.cfm">
-				<div id="surv-btn"  style="text-align:center;">
-					<label for="surveyCode">Please verify survey code:</label><br/><br/>
-					<input class="form-control" name="surveyCode" id="surveyCode" placeholder="Survey Code" type="text">
-					<p style="padding-top:5%;">
-						<input type="submit" name="submit" id="submit" value="Start Survey" class="btn btn-danger" style="width:60%;"/>
-					</p>
-				</div>
+				<div class="modal-dialog animated fadeInDown">
+					<div class="modal-content mytransparent">
+						<div class="modal-header">
+							<h3 class="text-center">Please verify survey code:</h3>
+						</div>
+						<div class="modal-body">
+								<div class="form-group smalltext">
+									<div class="row">
+										<div class="form-group"> 
+											<input class="form-control" name="surveyCode" id="surveyCode" placeholder="Survey Code" type="text">
+										</div>
+									</div>
+									<div class="row">
+										<div class="form-group" id="start-survey">
+											<input type="submit" name="submit" id="submit" value="Start Survey" class="btn btn-danger"/>
+										</div>
+									</div>
+								</div>
+						</div>
+					</div>
+				</div>	
 			</form>	
 		</div>
-	  </div>
-		
+	  </div><br/><br/><br/><br/>
 	<nav class="navbar navbar-default navbar-fixed-bottom progbar">
 	</nav>
   </body>

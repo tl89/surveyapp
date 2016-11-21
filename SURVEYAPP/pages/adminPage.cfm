@@ -50,11 +50,11 @@
 	  
 	<div class="container-fluid admin-page">
 		<h1>Survey Codes Availibility</h1><hr/>
-		<form action="newSurveyCode.cfm">
-		<p class="text-center" style="padding-top:1%;padding-bottom:1%;">
-			<input type="submit" name="submit" id="submit" value="Create new survey code" class="btn btn-primary" style="width:40%;"/>
+		<form action="newSurveyCode.cfm" style="padding-top:1%;padding-bottom:1%;text-align:center;">
+		<p>
+			<input type="submit" name="submit" id="submit" value="Create new survey code" class="btn btn-primary"/>
 		</p>
-	</form>
+		</form>
                         <div class="table-responsive">
                             <table class="table table-hover" id="patientstable">
 								<cfinvoke component="SURVEYAPP.classes.admin.survCodeDisp" method="getSurvCode" returnvariable="returnCodeQuery"></cfinvoke>
@@ -79,7 +79,7 @@
 								</tbody>
                             </table>
                         </div>
-	</div>
+	</div><br/><br/>
 		
 	<nav class="navbar navbar-default navbar-fixed-bottom progbar">
 		

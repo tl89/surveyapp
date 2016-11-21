@@ -16,6 +16,8 @@
     <link href="../css/dashboard.css" rel="stylesheet">
 	<link href="../css/checkbox-x.css" rel="stylesheet">
 	<link href="../css/jquery-ui.min.css" rel="stylesheet">
+	<link href="../css/signin.css" rel="stylesheet">
+	<link href="../css/animate.css" rel="stylesheet">
 	  
 
     <!-- Bootstrap core JavaScript -->
@@ -73,26 +75,33 @@
 			<div id="extraControls" class="hidden">	
 			<form class="form" method="post" action="/SURVEYAPP/classes/api/surveyApp.cfc?method=sendSurveyData">
 					<input name="surveyCode" id="surveyCode" type="hidden" value=<cfoutput>#form.surveyCode#</cfoutput>>
+				
+				
+				
 					<div class="step" id="page_one">
-						<legend>
-							<h3>Tell us about yourself.</h3>
-						</legend>
-						<div class="container">
-							<div class="form-group smalltext">
-								<div class="row">
-									<div class="form-group"> 
-											<input class="form-control" name="fname" id="fname" placeholder="First Name" type="text">
-									</div>
+						<div class="modal-dialog animated fadeInDown">
+							<div class="modal-content mytransparent">
+								<div class="modal-header">
+									<h1 class="text-center">Tell us about yourself.</h1>
 								</div>
-								<div class="row">
-									<div class="form-group">
-											<input class="form-control" name="lname" id="lname" placeholder="Last Name" type="text">
-									</div>
-								</div>
-								<div class="row">
-									<div class="form-group">
-										<input class="form-control" name="dob" id="dob" placeholder="Date of Birth (YYYY-MM-DD)" type="text">
-									</div>	
+								<div class="modal-body">
+										<div class="form-group smalltext">
+											<div class="row">
+												<div class="form-group"> 
+													<input class="form-control" name="fname" id="fname" placeholder="First Name" type="text">
+												</div>
+											</div>
+											<div class="row">
+												<div class="form-group">
+													<input class="form-control" name="lname" id="lname" placeholder="Last Name" type="text">
+												</div>
+											</div>
+											<div class="row">
+												<div class="form-group">
+													<input class="form-control" name="dob" id="dob" placeholder="Date of Birth (YYYY-MM-DD)" type="text">
+												</div>	
+											</div>
+										</div>
 								</div>
 							</div>
 						</div>
@@ -100,60 +109,35 @@
 
 
 					<div class="step" id="page_two">
-						<legend>
-							<h3>In the last two weeks, how many doses of HIV medications have you missed?</h3>
-						</legend>
-						<div class="container">
-							<div class="form-group smalltext">
-								<div class="row">
-									<div class="form-group">
-										<label for="doses">Missed Doses: </label>
-									</div> 
-									<div class="form-group">							
-										<select class="form-control" name="q1"  id="q1">
-											<option>0</option>
-											<option>1</option>
-											<option>2</option>
-											<option>3</option>
-											<option>4</option>
-											<option>5</option>
-											<option>6</option>
-											<option>7</option>
-											<option>8</option>
-											<option>9</option>
-											<option>10</option>	
-										</select>	
+						<div class="form-group smalltext">
+							<div class="modal-dialog animated">
+								<div class="modal-content mytransparent">
+									<div class="modal-header">
+										<h3 class="text-center">In the last two weeks, how many doses of HIV medications have you missed?</h3>
 									</div>
-								</div>	
-							</div>
-						</div>
-					</div>
-
-
-					<div class="step" id="page_three">
-						<legend>
-							<h3>In the last two weeks, how many days did you miss at least one dose of an HIV medication?</h3>
-						</legend>
-						<div class="container">
-							<div class="form-group smalltext">
-								<div class="row">
-									<div class="form-group">
-										<label for="days">Missed Days: </label>
-									</div>
-									<div class="form-group">
-										<select class="form-control" name="q2" id="q2">
-											<option>0</option>
-											<option>1</option>
-											<option>2</option>
-											<option>3</option>
-											<option>4</option>
-											<option>5</option>
-											<option>6</option>
-											<option>7</option>
-											<option>8</option>
-											<option>9</option>
-											<option>10</option>	
-										</select>
+									<div class="modal-body">
+										<div class="form-group smalltext">
+											<div class="row">
+												<div class="form-group">
+													<label for="doses">Missed Doses: </label>
+												</div>
+												<div class="form-group"> 
+													<select class="form-control" name="q1"  id="q1">
+														<option>0</option>
+														<option>1</option>
+														<option>2</option>
+														<option>3</option>
+														<option>4</option>
+														<option>5</option>
+														<option>6</option>
+														<option>7</option>
+														<option>8</option>
+														<option>9</option>
+														<option>10</option>	
+													</select>
+												</div>
+											</div>
+										</div>
 									</div>
 								</div>
 							</div>
@@ -161,18 +145,63 @@
 					</div>
 
 
-					<div class="step display" id="page_four">
-						<legend>
-							<h3>Please list any side-effects that occurred in the last two weeks.</h3>
-						</legend>
-						<div class="container">
-							<div class="form-group smalltext">
-								<div class="row">
-									<div class="form-group">
-										<label for="days">Side effects: </label>
-										<textarea class="form-control" name="q3" id="q3" placeholder="" type="text" rows="3"></textarea>
-									</div> 	
-								</div>	
+					<div class="step" id="page_three">
+						<div class="form-group smalltext">
+							<div class="modal-dialog animated">
+								<div class="modal-content mytransparent">
+									<div class="modal-header">
+										<h3 class="text-center">In the last two weeks, how many days did you miss at least one dose of an HIV medication?</h3>
+									</div>
+									<div class="modal-body">
+										<div class="form-group smalltext">
+											<div class="row">
+												<div class="form-group">
+													<label for="doses">Missed Days: </label>
+												</div>
+												<div class="form-group"> 
+													<select class="form-control" name="q2" id="q2">
+														<option>0</option>
+														<option>1</option>
+														<option>2</option>
+														<option>3</option>
+														<option>4</option>
+														<option>5</option>
+														<option>6</option>
+														<option>7</option>
+														<option>8</option>
+														<option>9</option>
+														<option>10</option>	
+													</select>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+
+					<div class="step" id="page_four">
+						<div class="form-group smalltext">
+							<div class="modal-dialog animated">
+								<div class="modal-content mytransparent">
+									<div class="modal-header">
+										<h3 class="text-center">Please list any side-effects that occurred in the last two weeks.</h3>
+									</div>
+									<div class="modal-body">
+										<div class="form-group smalltext">
+											<div class="row">
+												<div class="form-group">
+													<label for="doses">Side effects: </label>
+												</div>
+												<div class="form-group"> 
+													<textarea class="form-control" name="q3" id="q3" placeholder="" type="text" rows="3"></textarea>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
 							</div>
 						</div>
 					</div>
@@ -187,7 +216,7 @@
 			
 			<cfelse><cfoutput><h2>Survey Code doesn't exist or already used. <a href="index.cfm">Go back.</a></h2></cfoutput>
 			</cfif>
-	</div>
+	</div><br/><br/><br/><br/>
 		
 	<nav class="navbar navbar-default navbar-fixed-bottom progbar">
 		<div class="container-fluid">

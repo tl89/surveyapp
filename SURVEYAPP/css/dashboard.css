@@ -210,7 +210,7 @@ body {
 .smalltext{
 
   margin: 0 auto;
-  width: 40%
+  width: 90%
 }
 .btn-secondary,
 .btn-secondary:hover,
@@ -227,4 +227,10 @@ div.hidden
 }
 .glyphicon{
 	color: #428bca;
+}
+#start-survey{
+	text-align: center;
+}
+#start-survey input{
+	width: 60%;
 }

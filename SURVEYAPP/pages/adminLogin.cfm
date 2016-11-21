@@ -87,26 +87,26 @@
             <div class="modal-dialog animated fadeIn">
                 <div class="modal-content mytransparent">
                     <div class="modal-header">
-                        <h1 class="text-center">Administrator Login</h1>
+                        <h2 class="text-center">Administrator Login</h2>
                     </div>
                     <div class="modal-body">
                         <form id="loginform">
                             <div class="alert alert-danger" id="responsediv" style="display:none;"></div>
                             <div class="form-group">
-                                <input type="text" class="form-control input-lg" name="username" id="username" placeholder="Username" required>
+                                <input type="text" class="form-control" name="username" id="username" placeholder="Username" required>
                             </div>
                             <div class="form-group">
-                                <input type="password" class="form-control input-lg" name="password" id="password" placeholder="Password" required>
+                                <input type="password" class="form-control" name="password" id="password" placeholder="Password" required>
                             </div>
                             <div class="form-group">
-                              <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
-							  <button id="cancel" class="btn btn-lg btn-secondary btn-block" type="button">Cancel</button>
+                              <button class="btn btn-primary btn-block" type="submit">Login</button>
+							  <button id="cancel" class="btn btn-secondary btn-block" type="button">Cancel</button>
                             </div>
                         </form>
                     </div>
                 </div>
             </div>
-        </div>
+        </div><br/><br/><br/><br/>
 		
 		<nav class="navbar navbar-default navbar-fixed-bottom progbar">
 		

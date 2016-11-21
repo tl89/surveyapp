@@ -18,7 +18,11 @@ $(document).ready(function(){
 			if(current < widget.length){
 				// Check validation
 				if($(".form").valid()){
-					transition("#" + widget[current-1].id,"#" + widget[current].id);
+					$("#" + widget[current-1].id).find('.animated').removeClass('fadeInLeft');
+					$("#" + widget[current-1].id).find('.animated').addClass('fadeOutLeft');
+					$("#" + widget[current].id).find('.animated').removeClass('fadeOutRight');
+					$("#" + widget[current].id).find('.animated').addClass('fadeInRight');
+					transition("#" + widget[current-1].id,"#" + widget[current].id); 
 					current++;
 					setProgress(current);
 				}
@@ -31,6 +35,10 @@ $(document).ready(function(){
 			if(current > 1){
 				current = current - 2;
 				if(current < widget.length){
+					$("#" + widget[current+1].id).find('.animated').removeClass('fadeInRight');
+					$("#" + widget[current+1].id).find('.animated').addClass('fadeOutRight');
+					$("#" + widget[current].id).find('.animated').removeClass('fadeOutLeft fadeInRight');
+					$("#" + widget[current].id).find('.animated').addClass('fadeInLeft');
 					transition("#" + widget[current+1].id,"#" + widget[current].id);
 					current++;
 					setProgress(current);

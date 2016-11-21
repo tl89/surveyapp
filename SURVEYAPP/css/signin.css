@@ -1,3 +1,8 @@
+body {
+    background: url(../images/bk2.png) no-repeat fixed;
+    background-size: cover;
+}
+
 .mytransparent {
     opacity: 0.95;
     border-radius: 3px;
