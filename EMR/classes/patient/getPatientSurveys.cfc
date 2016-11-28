@@ -3,14 +3,14 @@
         <cfargument name="pid" required="true"/>
         <cfset var response="">
 
-        <cfquery name="patientSurveyQuery" datasource="emrApp">
+        <cfquery name="patientSurveyQuery" datasource="emrdb">
             SELECT * FROM surveyData
-            WHERE patientId = #pid#
+            WHERE patientid = #pid#
         </cfquery>
 
         <cfloop query="patientSurveyQuery">
             <cfset var response &="<tr>">
-            <cfset var response &="<td>" & #surveyId# & "</td><td>" & #DateFormat(dateTaken, "mmm. dd, yyyy")# & "</td><td>" & "<button class=""btn btn-xs"" onclick=""viewPatientSurveyDetail('#surveyid#')"">View</button> " & "</td>">
+            <cfset var response &="<td>" & #surveyid# & "</td><td>" & #DateFormat(dateTaken, "mmm. dd, yyyy")# & "</td><td>" & "<button class=""btn btn-xs"" onclick=""viewPatientSurveyDetail('#surveyid#')"">View</button> " & "</td>">
         </cfloop>
 
         <cfreturn response>

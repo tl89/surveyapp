@@ -4,13 +4,13 @@
       <cfargument name="pid" required="true"/>
       <cfargument name="surveyid" required="true"/>
 
-        <cfquery name="surveyQuery" datasource="emrApp">
+        <cfquery name="surveyQuery" datasource="emrdb">
             SELECT *
             FROM surveyData
-            WHERE surveyId = '#surveyid#'
-            AND patientId = '#pid#'
+            WHERE surveyid = '#surveyid#'
+            AND patientid = '#pid#'
         </cfquery>
-	
+
         <cfset response = {
           "q1a" = #surveyQuery.question1#,
           "q2a" = #surveyQuery.question2#,

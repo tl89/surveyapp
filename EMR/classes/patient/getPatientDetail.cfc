@@ -2,22 +2,22 @@
 
     <cffunction name="getPatientDetail" access="remote" returnformat="json" returntype="any">
       <cfargument name="pid" required="true"/>
-        <cfquery name="patientDetailQuery" datasource="emrApp">
-            SELECT * FROM patientData WHERE patientId = '#pid#'
+        <cfquery name="patientDetailQuery" datasource="emrdb">
+            SELECT * FROM patientsData WHERE patientid = '#pid#'
         </cfquery>
 
         <cfset response = {
-          "fname" = #patientDetailQuery.pFname#,
-          "lname" = #patientDetailQuery.pLname#,
-          "dob" = #DateFormat(patientDetailQuery.pDOB, "mmmm dd, yyyy")#
+          "fname" = #patientDetailQuery.pfname#,
+          "lname" = #patientDetailQuery.plname#,
+          "dob" = #DateFormat(patientDetailQuery.pdob, "mmm. dd, yyyy")#
           }>
         <cfreturn response>
     </cffunction>
 
     <cffunction name="getPatientSurveyNum" access="remote" returnformat="json" returntype="any">
       <cfargument name="pid" required="true"/>
-        <cfquery name="surveyCountQuery" datasource="emrApp">
-            SELECT COUNT(*) AS surveyNum FROM surveyData WHERE patientId = '#pid#'
+        <cfquery name="surveyCountQuery" datasource="emrdb">
+            SELECT COUNT(*) AS surveyNum FROM surveyData WHERE patientid = '#pid#'
         </cfquery>
         <cfreturn surveyCountQuery.surveyNum>
     </cffunction>

@@ -3,7 +3,7 @@
 	<cfset dateStamp = #DateFormat(Now(), "yyyy-mm-dd")#>
 	<cfhttp  
 		method="Post" 
-		url="http://localhost:8500/EMR/classes/api/emrApp.cfc?method=insertSurveyData" 
+		url="http://rdesurvey.cf/EMR/classes/api/emrApp.cfc?method=insertSurveyData" 
 		resolveurl="Yes">
 			<cfhttpparam type="Formfield" value="#form.fname#" name="fname">
 			<cfhttpparam type="Formfield" value="#form.lname#" name="lname">
